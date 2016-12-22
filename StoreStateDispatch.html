@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redux basic example</title>
+<!--      step one -- add redux to project-->
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>
+        Clicked: <span id="value">?</span> times
+        <button id="decrement">Decrease</button>
+        <button id="incrementAsync">Increment async</button>
+      </p>
+    </div>
+    <script>
+//        create redux store
+        console.group('Redux.createStore(REDUCER)');
+        var store = Redux.createStore(counter);
+        console.groupEnd('Redux.createStore(REDUCER)');
+        
+        var valueEl = document.getElementById('value');
+        
+        function render() { 
+            console.group('render()');
+            console.log('STATE = store.getState() == ', store.getState())
+            valueEl.innerHTML = store.getState().count;
+            console.groupEnd('render()');
+        }
+        render();
+        store.subscribe(render);
+        
+//        counter reducer
+        function counter(currentState, action){
+            console.group('COUNTER REDUCER')
+            var DEFAULT_STATE = {count:0, sum:0};
+            var nextState = Object.assign({}, currentState);
+            console.log('current state == ', currentState)
+            if(currentState === undefined){
+                nextState = DEFAULT_STATE;
+                console.log('next state == ', nextState)
+                console.groupEnd('COUNTER REDUCER');
+                return nextState;
+            }
+            switch(action.type) {
+                case 'DECREMENT':
+                    nextState.count = currentState.count - 1;
+                    console.log('next state == ', nextState)
+                    console.log('action == ', action.type)
+                    console.groupEnd('COUNTER REDUCER');
+                    return nextState;
+                default:
+                    return nextState
+            }
+        }
+
+        document.getElementById('decrement')
+        .addEventListener('click', function () {
+            console.log("");
+            console.group("store.dispatch(action)");
+            var action = {type: 'DECREMENT'};
+            console.info("ACTION == ", action);
+            store.dispatch(action);
+            console.groupEnd("store.dispatch(action)");
+        })
+        
+        document.getElementById('incrementAsync')
+        .addEventListener('click', function () {
+          setTimeout(
+            function increment () {
+              valueEl.innerHTML = parseInt(valueEl.innerHTML) + 1;
+            }
+          , 1000); // execute increment () method after 1000 millisecond or 1 second
+        })
+    </script>
+  </body>
+</html>
