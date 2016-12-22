@@ -1,0 +1,17 @@
+<body>
+<script>
+    console.group('Group1');
+        console.info('This is group 1');
+        console.log('L');
+    console.groupEnd('Group1');
+
+    console.group('Group2');
+        console.info('This is group 2. It contains group 3')
+        console.group('Group3');
+            console.info('This is group 3');
+        console.groupEnd('Group3');
+        console.log('Group 3 has ended');
+    console.groupEnd('Group2');
+    console.log('Group 2 has ended');
+</script>
+</body>
