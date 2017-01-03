@@ -9,10 +9,8 @@ function sum(currentState, action){
     switch(action.type) {
         case 'SUM':
             nextState = parseInt(action.a) + parseInt(action.b);
-            
             return nextState;
         default:
             return nextState;
     }
 }
-

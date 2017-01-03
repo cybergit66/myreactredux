@@ -9,10 +9,13 @@ function sum(currentState, action){
     switch(action.type) {
         case 'SUM':
             nextState = parseInt(action.a) + parseInt(action.b);
-            
+            funcWithError()
             return nextState;
         default:
             return nextState;
     }
 }
 
+function funcWithError(){
+    throw Error('an error from sum')
+}
