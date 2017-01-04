@@ -1,20 +1,20 @@
-var decrease = () => ({ type: 'DECREMENT' });
+const decrease = () => ({ type: 'DECREMENT' });
 
-var increase = () => ({type: 'INCREMENT' });
+const increase = () => ({type: 'INCREMENT' });
 
-var getSum = (a, b) => ({ type: 'SUM', a:a, b:b  });
+const getSum = (a, b) => ({ type: 'SUM', a:a, b:b  });
 
 //ASYNC
-var asyncIncrease = (dispatch, state) => {
+const asyncIncrease = (dispatch, state) => {
     dispatch({type: "INCREMENT_LOADING"});
     _fakeServerApi.increaseCount(state.count.result,
-        data => dispatch({type: 'INCREMENT'});            
+        data => dispatch({type: 'INCREMENT'})           
     );
 }
 
 //imagur api
 // all API calls are put into action functions
-var getRandomImages = (dispatch, state) => {
+const getRandomImages = (dispatch, state) => {
     dispatch({type: "IMAGES_LOADING"});
     var imgurAPI = "https://api.imgur.com/3/gallery/random/random/1";
     $.getJSON(imgurAPI).done(data => dispatch({type: 'IMAGES', data:data.data})

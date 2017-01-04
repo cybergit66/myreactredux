@@ -2,10 +2,10 @@
 // store receives a reducer as a parameter
 // in this instance, we pass in 'combineReducers'
 // from reducers/index.js
-var store = Redux.createStore(combineReducers, Redux.applyMiddleware(logger, crashReporter, thunk));
+const store = Redux.createStore(combineReducers, Redux.applyMiddleware(logger, crashReporter, thunk));
 
 function render() { 
-    var state = store.getState();
+    const state = store.getState();
     $("#value").text(state.count.result);
     $("#value2").text(state.sum);
     
