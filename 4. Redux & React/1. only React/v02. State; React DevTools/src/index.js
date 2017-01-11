@@ -10,8 +10,8 @@ class Examples extends Component {
   render() {
     return (
         <div>
-            <h1 style={{color:"red"}}>Simple React Example</h1>
-            <p>{this.func01()}</p>
+            <h1>Simple React Example</h1>
+            
         </div>
     )
   }
