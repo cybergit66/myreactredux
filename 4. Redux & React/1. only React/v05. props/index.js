@@ -34,7 +34,7 @@ class Examples extends Component {
         <h1>React</h1>
         <Describe describe={this.state.describe}/>
         <Counter2 updateDescribe={this.updateDescribe}/>
-        <Sum/>
+        <Sum updateDescribe={this.updateDescribe}/>
       </div>
     )
   }
