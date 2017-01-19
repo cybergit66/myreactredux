@@ -14,13 +14,12 @@ export default class RandomImages extends Component{
   }
   render() {
     console.log('RandomImages.render()');
-      const images = this.state.data;
+//      const images = this.state.data;
       // stateless function
-      function ImageList(){
-          console.log(images);
+      function ImageList(props){
           return (
             <div>
-              {images.map((image) => ("<img src ='" + image.link + "' />"))}
+              {props.images.map((image) => (<img src={image.link} style={{height:"200px"}}/>))}
             </div>
           )
       }
@@ -30,7 +29,7 @@ export default class RandomImages extends Component{
             <button onClick={this.randomImages}>Random Images</button>
            <span style={{color:"blue"}}>{this.state.loading}</span>
         </p>
-        <ImageList/>
+        <ImageList images={this.state.data}/>
       </div>
     )
   }
