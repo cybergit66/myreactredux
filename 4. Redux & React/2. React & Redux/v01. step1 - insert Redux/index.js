@@ -4,7 +4,7 @@ import store from './redux/store/config'
 
 function render(){
     ReactDOM.render(
-        <Examples/>,
+	   <Examples/>,
         document.getElementById('root')  
     )
 }
