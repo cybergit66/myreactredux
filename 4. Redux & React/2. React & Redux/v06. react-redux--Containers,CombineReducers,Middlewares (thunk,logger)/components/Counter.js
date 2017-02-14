@@ -18,21 +18,19 @@ class Counter extends Component{
   }
 }
 
-//const mapStateToProps = (state, ownProps) => ({count: state.count})
+const mapStateToProps = (state, ownProps) => ({
+  count: state.count
+})
 
-//const mapDispatchToProps = (dispatch, ownProps) => ({
-//  onDecrement: () => {
-//    dispatch(decrease())
-//  }
-//})
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onDecrement: () => {
+    dispatch(decrease())
+  }
+})
 
 const CounterContainer = connect(
-  (state, ownProps) => ({
-      count: state.count,
-      prop2: state.prop // just an example in case more properties are added to state
-  }),
-  onDecrement: decrease,
-    func2: () => {} // just an example in case more functions are needed from dispatch
+  mapStateToProps,
+  mapDispatchToProps
 )(Counter)
 
 export default CounterContainer

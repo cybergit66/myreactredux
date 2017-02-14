@@ -23,21 +23,19 @@ class Sum extends Component{
   }
 }
 
-//const mapStateToProps = (state, ownProps) => ({
-//  sum: state.sum
-//})
-//
-//const mapDispatchToProps = (dispatch, ownProps) => ({
-//  onSum: (a,b) => {
-//    dispatch(getSum(a,b))
-//  }
-//})
+const mapStateToProps = (state, ownProps) => ({
+  sum: state.sum
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onSum: (a,b) => {
+    dispatch(getSum(a,b))
+  }
+})
 
 const SumContainer = connect(
-  (state, ownProps) => ({
-  sum: state.sum
-}),
-  onSum: (a,b) => getSum(a,b)
+  mapStateToProps,
+  mapDispatchToProps
 )(Sum)
 
 export default SumContainer
