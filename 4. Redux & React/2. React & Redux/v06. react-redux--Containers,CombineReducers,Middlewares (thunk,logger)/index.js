@@ -1,9 +1,10 @@
 import { render } from 'react-dom'
 import Examples from './components/Examples'
-import store from './redux/store/config'
+import configureStore from './redux/store/config'
 //import {decrease, getSum, getRandomImages} from './redux/actions/index'
 import React from 'react'
 import { Provider } from 'react-redux'
+const store = configureStore()
 
 //function render(){
 //  ReactDOM.render(

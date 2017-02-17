@@ -1,10 +1,21 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import thunk from 'redux-thunk'
+import createLogger from 'redux-logger'
 
 import combineReducer from '../reducers/index'
-import {logger, crashReporter, thunk} from '../middlewares/index'
+import { crashReporter } from '../middlewares/index'
 
-const store = createStore(combineReducer, composeWithDevTools(applyMiddleware(logger, crashReporter, thunk)
-));
 
-export default store
+const configureStore = preloadedState => {
+  const store = createStore(
+    combineReducer,
+    preloadedState,
+    composeWithDevTools(
+      applyMiddleware(thunk, crashReporter, createLogger())
+    )
+  )
+  return store
+}
+
+export default configureStore

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Counter2, {a as a2, b} from './Counter'
+import Counter2 from './Counter'
 import Sum from './Sum'
 import RandomImages from './RandomImages'
 
