@@ -2,11 +2,14 @@ import ReactDOM from 'react-dom'
 import Examples from './components/Examples'
 import store from './redux/store/config'
 
-function render(){
-    ReactDOM.render(
-	   <Examples/>,
-        document.getElementById('root')  
-    )
-}
+import React from 'react'
 
- store.subscribe(render)
+function render(){
+  ReactDOM.render(
+    <Examples/>,
+    document.getElementById('root')  
+  )
+}
+render();
+
+store.subscribe(render);
