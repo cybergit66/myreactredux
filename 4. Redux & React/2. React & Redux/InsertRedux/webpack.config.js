@@ -1,11 +1,6 @@
 const webpack = require('webpack');
 const path = require('path'); // used for absolute file referencing
 
-const VENDOR_LIBS = [
-  'faker', 'lodash', 'redux', 'react-redux', 'react-dom',
-    'react-input-range', 'redux-form', 'redux-thunk', 
-    'react-router', 'react'
-];
 
 module.exports = {
     entry: './src/index.js', // must be a relative reference
@@ -25,10 +20,5 @@ module.exports = {
                 test: /\.css$/
             }
         ]
-    },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
-        })
-    ]
+    }
 };
