@@ -1,24 +1,9 @@
 import { render } from 'react-dom'
 import Examples from './components/Examples'
 import configureStore from './redux/store/config'
-//import {decrease, getSum, getRandomImages} from './redux/actions/index'
 import React from 'react'
 import { Provider } from 'react-redux'
 const store = configureStore()
-
-//function render(){
-//  ReactDOM.render(
-//    <Examples value = {store.getState()}
-//      onDecrement = {() => store.dispatch(decrease())}
-//      onSum = {(a,b)=> store.dispatch(getSum(a, b))}
-//      onRandomImages = {() => store.dispatch(getRandomImages)}
-//    />,
-//    document.getElementById('root')  
-//  )
-//}
-//render();
-//
-//store.subscribe(render);
 
 render(
   <Provider store={store}>
