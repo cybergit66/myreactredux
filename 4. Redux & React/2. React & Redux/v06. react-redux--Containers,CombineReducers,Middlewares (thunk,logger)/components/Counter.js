@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { decrease } from '../redux/actions/index'
 
 class Counter extends Component{
   constructor(props) {
@@ -18,19 +16,4 @@ class Counter extends Component{
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  count: state.count
-})
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onDecrement: () => {
-    dispatch(decrease())
-  }
-})
-
-const CounterContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter)
-
-export default CounterContainer
+export default Counter

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { getSum } from '../redux/actions/index'
+//import { connect } from 'react-redux'
+//import { getSum } from '../redux/actions/index'
 
 class Sum extends Component{
   constructor(props) {
@@ -23,19 +23,21 @@ class Sum extends Component{
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  sum: state.sum
-})
+export default Sum
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onSum: (a,b) => {
-    dispatch(getSum(a,b))
-  }
-})
-
-const SumContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Sum)
-
-export default SumContainer
+//const mapStateToProps = (state, ownProps) => ({
+//  sum: state.sum
+//})
+//
+//const mapDispatchToProps = (dispatch, ownProps) => ({
+//  onSum: (a,b) => {
+//    dispatch(getSum(a,b))
+//  }
+//})
+//
+//const SumContainer = connect(
+//  mapStateToProps,
+//  mapDispatchToProps
+//)(Sum)
+//
+//export default SumContainer
